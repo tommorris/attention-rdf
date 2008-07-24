@@ -1,0 +1,40 @@
+#Processed by Id: cwm.py,v 1.164 2004/10/28 17:41:59 timbl Exp 
+        #    using base file:/Users/tom/code/attentionrdf/attention.rdf
+        
+#  Notation3 generation by
+#       notation3.py,v 1.166 2004/10/28 17:41:59 timbl Exp
+
+#   Base was: file:/Users/tom/code/attentionrdf/attention.rdf
+     @prefix : <http://www.w3.org/2000/01/rdf-schema#> .
+     @prefix Ont: <http://rdf.opiumfield.com/attention/> .
+     @prefix owl: <http://www.w3.org/2002/07/owl#> .
+     @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+    
+    Ont:     a owl:Ontology;
+         owl:imports <http://xmlns.com/foaf/0.1/> .
+    
+    Ont:Attention     a owl:Class;
+         :comment "A particular node of attention - ie. the action of a person paying attention to something."@en .
+    
+    Ont:attentionOf     a owl:ObjectProperty;
+         :comment "One or more persons or groups who are experiencing this attention fragment."@en;
+         :domain Ont:Attention;
+         :range <http://xmlns.com/foaf/0.1/Group>,
+                <http://xmlns.com/foaf/0.1/Person> .
+    
+    Ont:timestamp     a owl:DatatypeProperty;
+         :comment "The particular point in time and space at which this attention fragment happened."@en;
+         :domain Ont:Attention;
+         :range xsd:dateTime .
+         
+    Ont:location a owl:DatatypeProperty;
+        :comment "Any number of locations at which this point happened. Only to be specified if geo-location is relevant."@en;
+        :domain Ont:Attention;
+        :range <http://www.w3.org/2003/01/geo/wgs84_pos#Point> .
+
+    Ont:uri a owl:DatatypeProperty;
+        :comment "The unique resource indicator that represents the substantive content of the attention."@en;
+        :domain Ont:Attention;
+        :range xsd:anyURI.
+    
+#ENDS
